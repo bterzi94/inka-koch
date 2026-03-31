@@ -103,7 +103,7 @@
       <div class="value-prop__right">
         <div class="value-prop__video">
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/msAHY32lMSI"
             title="Emotionale Freiheit setzt finanzielle Unabhängigkeit voraus"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -533,9 +533,20 @@
       nextBtn.addEventListener('click', () => goTo(current + 1));
       window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIndex())); });
 
+      // Touch swipe
+      let touchStartX = 0;
+      track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+      }, { passive: true });
+
       buildDots();
       goTo(0);
     })();
+
+    // ── Footer year ────────────────────────────────────────────────
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
   </script>
 
   <!-- ── FOOTER ────────────────────────────────────────────────────── -->
@@ -594,7 +605,7 @@
 
       <!-- Bottom row -->
       <div class="site-footer__bottom">
-        <p class="site-footer__copyright">© 2025 inka-koch.com. Alle Rechte vorbehalten.</p>
+        <p class="site-footer__copyright">© <span id="footerYear"></span> inka-koch.com. Alle Rechte vorbehalten.</p>
         <p class="site-footer__credit">Webdesign realisiert durch <a href="https://www.brandheiss.agency/" target="_blank" rel="noopener">BrandHeiss Agency 🔥</a></p>
       </div>
 
