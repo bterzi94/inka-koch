@@ -470,7 +470,8 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 580px) {
   :root { --page-margin: 0.5rem; }
   .site-header { left: var(--page-margin); right: var(--page-margin); }
-.value-prop__title { max-width: 66%; }
+  .value-prop__title { max-width: 66%; }
+  .hero__collage img { max-width: 100%; }
 }
 
 /* ── UTILITIES ───────────────────────────────────────────────────── */
