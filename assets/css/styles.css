@@ -470,8 +470,7 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 580px) {
   :root { --page-margin: 0.5rem; }
   .site-header { left: var(--page-margin); right: var(--page-margin); }
-  .btn.btn--accent { width: 100%; justify-content: space-between; }
-  .value-prop__title { max-width: 66%; }
+.value-prop__title { max-width: 66%; }
 }
 
 /* ── UTILITIES ───────────────────────────────────────────────────── */
